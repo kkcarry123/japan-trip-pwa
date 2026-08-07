@@ -2,6 +2,7 @@
 import { getTripDay, daysUntilTrip, isTripOver } from './dateUtils.js';
 import { nowToMinutes, getScheduleStatus, parseTimeToMinutes } from './timeUtils.js';
 import { initMap, showDayOnMap } from './map.js';
+import { initChecklist } from './checklist.js';
 
 const dayTabsEl = document.getElementById('day-tabs');
 const contentEl = document.getElementById('day-content');
@@ -103,12 +104,29 @@ async function switchDay(day) {
   showDayOnMap(data.items);
 }
 
+function initBottomNav() {
+  document.querySelectorAll('#bottom-nav button').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#bottom-nav button').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const isItinerary = btn.dataset.view === 'itinerary';
+      document.getElementById('day-tabs').style.display = isItinerary ? '' : 'none';
+      document.getElementById('day-content').style.display = isItinerary ? '' : 'none';
+      document.getElementById('cache-maps-btn').style.display = isItinerary ? '' : 'none';
+      document.getElementById('map').style.display = isItinerary ? '' : 'none';
+      document.getElementById('checklist-view').style.display = isItinerary ? 'none' : '';
+    });
+  });
+}
+
 async function init() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');
   }
 
   initMap();
+  initChecklist();
+  initBottomNav();
 
   const tripDay = getTripDay(new Date());
   if (tripDay === null) {
