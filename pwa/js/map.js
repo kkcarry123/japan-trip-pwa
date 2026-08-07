@@ -48,47 +48,52 @@ async function cacheAllMaps() {
   btn.disabled = true;
   btn.textContent = '准备中...';
 
-  const allDays = [];
-  for (let d = 1; d <= 9; d++) {
-    const res = await fetch(`data/d${d}.json`);
-    allDays.push(await res.json());
-  }
+  try {
+    const allDays = [];
+    for (let d = 1; d <= 9; d++) {
+      const res = await fetch(`data/d${d}.json`);
+      allDays.push(await res.json());
+    }
 
-  const cache = await caches.open('map-tiles-v1');
-  const subdomains = ['a', 'b', 'c'];
-  const urls = new Set();
+    const cache = await caches.open('map-tiles-v1');
+    const subdomains = ['a', 'b', 'c'];
+    const urls = new Set();
 
-  for (const day of allDays) {
-    const points = day.items.filter((i) => i.lat != null && i.lng != null);
-    for (const z of PRECACHE_ZOOMS) {
-      for (const p of points) {
-        const x = lngToTileX(p.lng, z);
-        const y = latToTileY(p.lat, z);
-        for (let dx = -1; dx <= 1; dx++) {
-          for (let dy = -1; dy <= 1; dy++) {
-            const s = subdomains[(x + y + dx + dy + 300) % subdomains.length];
-            urls.add(tileUrlFor(z, x + dx, y + dy, s));
+    for (const day of allDays) {
+      const points = day.items.filter((i) => i.lat != null && i.lng != null);
+      for (const z of PRECACHE_ZOOMS) {
+        for (const p of points) {
+          const x = lngToTileX(p.lng, z);
+          const y = latToTileY(p.lat, z);
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const s = subdomains[(x + y + dx + dy + 300) % subdomains.length];
+              urls.add(tileUrlFor(z, x + dx, y + dy, s));
+            }
           }
         }
       }
     }
-  }
 
-  const urlList = [...urls];
-  let done = 0;
-  for (const url of urlList) {
-    try {
-      const res = await fetch(url);
-      if (res.ok) await cache.put(url, res);
-    } catch (e) {
-      // 跳过下载失败的瓦片,不阻塞整体流程
+    const urlList = [...urls];
+    let done = 0;
+    for (const url of urlList) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) await cache.put(url, res);
+      } catch (e) {
+        // 跳过下载失败的瓦片,不阻塞整体流程
+      }
+      done++;
+      btn.textContent = `缓存中...${Math.round((done / urlList.length) * 100)}%`;
     }
-    done++;
-    btn.textContent = `缓存中...${Math.round((done / urlList.length) * 100)}%`;
-  }
 
-  btn.disabled = false;
-  btn.textContent = `离线地图已缓存(${urlList.length}张瓦片)`;
+    btn.disabled = false;
+    btn.textContent = `离线地图已缓存(${urlList.length}张瓦片)`;
+  } catch (e) {
+    btn.disabled = false;
+    btn.textContent = '离线缓存失败,请检查网络后重试';
+  }
 }
 
 export { initMap, showDayOnMap, cacheAllMaps };
