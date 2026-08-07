@@ -76,8 +76,10 @@ async function cacheAllMaps() {
     }
 
     const urlList = [...urls];
+    const CONCURRENCY = 8;
     let done = 0;
-    for (const url of urlList) {
+
+    async function fetchOne(url) {
       try {
         const res = await fetch(url);
         if (res.ok) await cache.put(url, res);
@@ -86,6 +88,11 @@ async function cacheAllMaps() {
       }
       done++;
       btn.textContent = `缓存中...${Math.round((done / urlList.length) * 100)}%`;
+    }
+
+    for (let i = 0; i < urlList.length; i += CONCURRENCY) {
+      const batch = urlList.slice(i, i + CONCURRENCY);
+      await Promise.all(batch.map(fetchOne));
     }
 
     btn.disabled = false;
