@@ -3,12 +3,14 @@
   "date": "2026-09-20",
   "title": "大阪 → 上海",
   "items": [
-    { "time": "08:00", "endTime": "09:30", "title": "心斋桥+道顿堀购物", "lat": 34.6717, "lng": 135.5010 },
-    { "time": "09:45", "endTime": "10:45", "title": "午饭:一兰道顿堀总本店", "lat": 34.6687, "lng": 135.5013 },
-    { "time": "11:00", "endTime": "11:40", "title": "南海rapi:t特急 难波→关西机场", "detail": "最快34分钟" },
-    { "time": "11:45", "endTime": "12:30", "title": "办理登机手续+托运行李" },
-    { "time": "12:30", "endTime": "13:00", "title": "出境审查+安检" },
-    { "time": "13:00", "endTime": "15:00", "title": "关西机场免税店购物", "lat": 34.4347, "lng": 135.2441 },
-    { "time": "15:30", "endTime": null, "title": "起飞:KIX → 浦东" }
+    { "kind": "stop", "time": "08:00", "endTime": "09:30", "title": "心斋桥+道顿堀购物", "detail": "药妆9点开门,伴手礼一次买齐;退税记得带护照", "lat": 34.6717, "lng": 135.5010 },
+    { "kind": "transit", "icon": "🚶", "time": "09:30", "endTime": "09:45", "title": "步行回难波站方向" },
+    { "kind": "stop", "time": "09:45", "endTime": "10:45", "title": "午饭:一兰道顿堀总本店", "detail": "或蟹道乐本店", "lat": 34.6687, "lng": 135.5013 },
+    { "kind": "transit", "icon": "🚄", "time": "11:00", "endTime": "11:40", "title": "南海rapi:t特急 难波→关西机场", "detail": "最快34分钟,含买票进站预留到40分钟" },
+    { "kind": "stop", "time": "11:45", "endTime": "12:30", "title": "办理登机手续+托运行李" },
+    { "kind": "stop", "time": "12:30", "endTime": "13:00", "title": "出境审查+安检", "detail": "国际线建议预留充分,暑期人多排队可能久" },
+    { "kind": "stop", "time": "13:00", "endTime": "15:00", "title": "关西机场免税店购物", "detail": "国际线候机区免税店范围大,化妆品/烟酒/伴手礼都有", "lat": 34.4347, "lng": 135.2441 },
+    { "kind": "transit", "icon": "🚶", "time": "15:00", "endTime": "15:20", "title": "前往登机口" },
+    { "kind": "stop", "time": "15:30", "endTime": null, "title": "起飞:KIX → 浦东", "detail": "订15:00后的航班" }
   ]
 }

@@ -6,6 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const REQUIRED_ITEM_FIELDS = ['time', 'title'];
 const VALID_STATUS = ['confirmed', 'pending'];
+const VALID_KIND = ['stop', 'transit'];
 
 function validateDay(filename, data) {
   const errors = [];
@@ -26,6 +27,12 @@ function validateDay(filename, data) {
     }
     if (item.status && !VALID_STATUS.includes(item.status)) {
       errors.push(`${filename}: items[${i}].status must be one of ${VALID_STATUS.join(', ')}`);
+    }
+    if (item.kind && !VALID_KIND.includes(item.kind)) {
+      errors.push(`${filename}: items[${i}].kind must be one of ${VALID_KIND.join(', ')}`);
+    }
+    if (item.kind === 'transit' && (item.lat != null || item.lng != null)) {
+      errors.push(`${filename}: items[${i}] is kind "transit" but has lat/lng — transit items should not be map points`);
     }
   });
 

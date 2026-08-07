@@ -1,6 +1,7 @@
 // pwa/js/map.js
 let map = null;
 let markersLayer = null;
+let currentMarkers = []; // [{ lat, lng, marker }] for the day currently shown
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const TILE_ATTRIBUTION = '&copy; OpenStreetMap contributors';
@@ -16,16 +17,33 @@ function initMap() {
 
 function showDayOnMap(items) {
   markersLayer.clearLayers();
+  currentMarkers = [];
   const points = items.filter((i) => i.lat != null && i.lng != null);
   if (points.length === 0) return;
 
-  points.forEach((item) => {
+  points.forEach((item, i) => {
     const marker = L.marker([item.lat, item.lng]).addTo(markersLayer);
+    const numberIcon = L.divIcon({
+      className: 'map-marker-number',
+      html: `<span>${i + 1}</span>`,
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+    });
+    marker.setIcon(numberIcon);
     marker.bindPopup(`<b>${item.time} ${item.title}</b><br>${item.detail || ''}`);
+    currentMarkers.push({ lat: item.lat, lng: item.lng, marker });
   });
 
   const bounds = L.latLngBounds(points.map((p) => [p.lat, p.lng]));
   map.fitBounds(bounds, { padding: [30, 30] });
+}
+
+function focusPoint(lat, lng) {
+  if (!map) return;
+  map.setView([lat, lng], 16);
+  const found = currentMarkers.find((m) => m.lat === lat && m.lng === lng);
+  if (found) found.marker.openPopup();
+  document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function lngToTileX(lng, z) {
@@ -103,4 +121,4 @@ async function cacheAllMaps() {
   }
 }
 
-export { initMap, showDayOnMap, cacheAllMaps };
+export { initMap, showDayOnMap, cacheAllMaps, focusPoint };

@@ -3,13 +3,23 @@
   "date": "2026-09-18",
   "title": "南禅寺水路阁 → 宇治平等院 → 奈良喂鹿 → 神户Aragawa",
   "items": [
-    { "time": "09:15", "endTime": "09:45", "title": "南禅寺水路阁", "lat": 35.0116, "lng": 135.7936 },
-    { "time": "10:50", "endTime": "11:10", "title": "JR奈良线 京都→宇治" },
-    { "time": "11:20", "endTime": "12:20", "title": "平等院凤凰堂", "lat": 34.8892, "lng": 135.8080 },
-    { "time": "12:30", "endTime": "13:30", "title": "午饭:中村藤吉本店", "detail": "抹茶荞麦面+抹茶冻甜品", "lat": 34.8908, "lng": 135.8072 },
-    { "time": "14:35", "endTime": "16:00", "title": "奈良公园喂鹿+东大寺大佛", "lat": 34.6851, "lng": 135.8432 },
-    { "time": "16:00", "endTime": "16:50", "title": "春日大社参道", "lat": 34.6814, "lng": 135.8482 },
-    { "time": "19:00", "endTime": "21:30", "title": "晚饭:麤皮Aragawa本店", "detail": "米其林二星炭烤三田牛,9/18 19:00·1人,兵库県神戸市中央区中山手通2-15-18", "status": "confirmed", "lat": 34.6952, "lng": 135.1946 },
-    { "time": "21:45", "endTime": "22:25", "title": "阪神なんば线 三宫→难波", "detail": "直通快速急行,约40分钟¥420不用换车" }
+    { "kind": "stop", "time": "08:30", "endTime": "09:00", "title": "早饭:酒店早餐或附近咖啡店", "detail": "轻松版,不用赶点" },
+    { "kind": "transit", "icon": "🚇", "time": "09:15", "endTime": null, "title": "地铁烏丸线换东西线→蹴上", "detail": "京都站经乌丸御池换乘,约20分钟¥260,步行7分钟" },
+    { "kind": "stop", "time": "09:15", "endTime": "09:45", "title": "南禅寺水路阁", "detail": "明治红砖水道桥穿寺而过,免费", "lat": 35.0116, "lng": 135.7936 },
+    { "kind": "stop", "time": "10:30", "endTime": null, "title": "回酒店退房", "detail": "行李宅急便发大阪酒店;酒店就在京都站旁边,退房后直接步行进站" },
+    { "kind": "transit", "icon": "🚃", "time": "10:50", "endTime": "11:10", "title": "JR奈良线快速 京都→宇治", "detail": "¥240" },
+    { "kind": "stop", "time": "11:20", "endTime": "12:20", "title": "平等院凤凰堂", "detail": "10日元硬币上的建筑本尊,世界遗产;外观+凤翔馆博物馆1小时够", "lat": 34.8892, "lng": 135.8080 },
+    { "kind": "transit", "icon": "🚶", "time": "12:20", "endTime": "12:30", "title": "步行回宇治桥通", "detail": "约8分钟" },
+    { "kind": "stop", "time": "12:30", "endTime": "13:30", "title": "午饭:中村藤吉本店", "detail": "抹茶荞麦面+抹茶冻甜品,排队30分钟起", "lat": 34.8908, "lng": 135.8072 },
+    { "kind": "transit", "icon": "🚃", "time": "13:45", "endTime": "14:25", "title": "JR奈良线 宇治→奈良", "detail": "¥510" },
+    { "kind": "stop", "time": "14:35", "endTime": "16:00", "title": "奈良公园喂鹿+东大寺大佛", "detail": "鹿饼¥200/叠,买完先收兜里再掏", "lat": 34.6851, "lng": 135.8432 },
+    { "kind": "transit", "icon": "🚶", "time": "16:00", "endTime": null, "title": "参道步行", "detail": "约10分钟" },
+    { "kind": "stop", "time": "16:00", "endTime": "16:50", "title": "春日大社参道", "detail": "两千座石灯笼夹道、树荫下的鹿,傍晚光线最好", "lat": 34.6814, "lng": 135.8482 },
+    { "kind": "transit", "icon": "🚄", "time": "17:10", "endTime": "17:45", "title": "近铁奈良线快速急行 奈良→大阪难波", "detail": "¥680;行李已宅急便直送大阪酒店,不用回酒店" },
+    { "kind": "transit", "icon": "🚃", "time": "17:55", "endTime": "18:35", "title": "阪神难波线直通快速急行 难波→神户三宫", "detail": "¥420,一条线直通不用出站" },
+    { "kind": "stop", "time": "19:00", "endTime": "21:30", "title": "晚饭:麤皮Aragawa本店", "detail": "米其林二星炭烤三田牛,兵库県神戸市中央区中山手通2-15-18,晚间课程45,980円/人;9/18 19:00·1人", "status": "confirmed", "lat": 34.6952, "lng": 135.1946 },
+    { "kind": "transit", "icon": "🚶", "time": "21:30", "endTime": "21:45", "title": "步行 Aragawa→三宫站", "detail": "约10–15分钟" },
+    { "kind": "transit", "icon": "🚃", "time": "21:45", "endTime": "22:25", "title": "阪神なんば线直通快速急行 三宫→难波", "detail": "反向坐回程,约40分钟¥420,不用换车" },
+    { "kind": "stop", "time": "22:40", "endTime": null, "title": "回难波,办入住", "detail": "行李已宅急便直送酒店" }
   ]
 }

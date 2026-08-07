@@ -1,7 +1,7 @@
 // pwa/js/app.js
 import { getTripDay, daysUntilTrip, isTripOver } from './dateUtils.js';
-import { nowToMinutes, getScheduleStatus, parseTimeToMinutes } from './timeUtils.js';
-import { initMap, showDayOnMap } from './map.js';
+import { nowToMinutes, getScheduleStatus } from './timeUtils.js';
+import { initMap, showDayOnMap, focusPoint } from './map.js';
 import { initChecklist } from './checklist.js';
 
 const dayTabsEl = document.getElementById('day-tabs');
@@ -48,47 +48,63 @@ function renderDay(data) {
   contentEl.appendChild(title);
 
   const now = nowToMinutes(new Date());
-  const { currentIndex, nextIndex, pastIndices } = getScheduleStatus(data.items, now);
-
-  const banner = document.createElement('div');
-  banner.className = 'countdown-banner';
-  if (nextIndex !== null) {
-    const nextItem = data.items[nextIndex];
-    const mins = parseTimeToMinutes(nextItem.time) - now;
-    banner.textContent = `下一项:${nextItem.title},还有 ${mins} 分钟`;
-  } else if (currentIndex !== null) {
-    banner.textContent = `进行中:${data.items[currentIndex].title}`;
-  } else {
-    banner.textContent = '今天的行程已经结束';
-  }
-  contentEl.appendChild(banner);
+  const { currentIndex, pastIndices } = getScheduleStatus(data.items, now);
 
   const list = document.createElement('ul');
   list.className = 'item-list';
+
+  let pointNumber = 0;
   data.items.forEach((item, i) => {
+    const isTransit = item.kind === 'transit';
+    const hasPoint = item.lat != null && item.lng != null;
+    if (hasPoint) pointNumber++;
+
     const li = document.createElement('li');
-    li.className = 'item';
+    li.className = isTransit ? 'item transit' : 'item stop';
     if (pastIndices.has(i)) li.classList.add('past');
     if (i === currentIndex) li.classList.add('current');
     if (item.status === 'confirmed') li.classList.add('confirmed');
     if (item.status === 'pending') li.classList.add('pending');
 
-    const time = document.createElement('span');
-    time.className = 'item-time';
-    time.textContent = item.endTime ? `${item.time}–${item.endTime}` : item.time;
+    if (isTransit) {
+      const row = document.createElement('div');
+      row.className = 'transit-row';
+      const icon = document.createElement('span');
+      icon.className = 'transit-icon';
+      icon.textContent = item.icon || '🚶';
+      const text = document.createElement('span');
+      text.className = 'transit-text';
+      text.textContent = item.title + (item.detail ? ` · ${item.detail}` : '');
+      row.appendChild(icon);
+      row.appendChild(text);
+      li.appendChild(row);
+    } else {
+      if (hasPoint) {
+        li.classList.add('clickable');
+        const num = document.createElement('span');
+        num.className = 'item-number';
+        num.textContent = pointNumber;
+        li.appendChild(num);
+        li.addEventListener('click', () => focusPoint(item.lat, item.lng));
+      }
 
-    const label = document.createElement('span');
-    label.className = 'item-title';
-    label.textContent = item.title + (item.status === 'confirmed' ? ' ✅' : item.status === 'pending' ? ' ⚠' : '');
+      const time = document.createElement('span');
+      time.className = 'item-time';
+      time.textContent = item.endTime ? `${item.time}–${item.endTime}` : item.time;
 
-    li.appendChild(time);
-    li.appendChild(label);
+      const label = document.createElement('span');
+      label.className = 'item-title';
+      label.textContent = item.title + (item.status === 'confirmed' ? ' ✅' : item.status === 'pending' ? ' ⚠' : '');
 
-    if (item.detail) {
-      const detail = document.createElement('p');
-      detail.className = 'item-detail';
-      detail.textContent = item.detail;
-      li.appendChild(detail);
+      li.appendChild(time);
+      li.appendChild(label);
+
+      if (item.detail) {
+        const detail = document.createElement('p');
+        detail.className = 'item-detail';
+        detail.textContent = item.detail;
+        li.appendChild(detail);
+      }
     }
 
     list.appendChild(li);

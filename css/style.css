@@ -1,33 +1,214 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; background: #f5f5f3; color: #222; padding-bottom: 56px; }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-#day-tabs { display: flex; overflow-x: auto; background: #c0392b; position: sticky; top: 0; z-index: 10; }
-#day-tabs .tab { flex: 0 0 auto; padding: 12px 16px; background: none; border: none; color: #fff; opacity: 0.7; font-size: 15px; }
-#day-tabs .tab.active { opacity: 1; font-weight: bold; border-bottom: 3px solid #fff; }
+:root {
+  --accent: #c0392b;
+  --accent-dark: #a5321f;
+  --ok: #1f9d55;
+  --warn: #c0392b;
+  --ink: #1c1c1e;
+  --ink-soft: #6b6b70;
+  --line: #e7e5e2;
+  --bg: #f4f3f1;
+  --card: #ffffff;
+}
 
-#day-content { padding: 12px; }
-.boundary-screen { padding: 40px 16px; text-align: center; font-size: 18px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  padding-bottom: 64px;
+  -webkit-font-smoothing: antialiased;
+}
 
-.countdown-banner { background: #fff3cd; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-size: 14px; }
+/* 顶部日期切换条 */
+#day-tabs {
+  display: flex;
+  overflow-x: auto;
+  background: var(--accent);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  scrollbar-width: none;
+}
+#day-tabs::-webkit-scrollbar { display: none; }
+#day-tabs .tab {
+  flex: 0 0 auto;
+  padding: 14px 18px 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  opacity: 0.62;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease;
+}
+#day-tabs .tab.active {
+  opacity: 1;
+  font-weight: 700;
+  border-bottom: 3px solid #fff;
+}
 
-.item-list { list-style: none; }
-.item { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
-.item.past { opacity: 0.45; }
-.item.current { border-left: 4px solid #c0392b; }
-.item.pending .item-title { color: #c0392b; }
-.item.confirmed .item-title { color: #27ae60; }
-.item-time { display: block; font-size: 13px; color: #888; }
-.item-title { display: block; font-size: 16px; font-weight: 600; }
-.item-detail { font-size: 13px; color: #555; margin-top: 4px; }
+#day-content { padding: 14px 12px 4px; }
+#day-content h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 0 2px;
+  color: var(--ink);
+}
 
-#cache-maps-btn { display: block; width: calc(100% - 24px); margin: 0 12px 12px; padding: 10px; background: #2c3e50; color: #fff; border: none; border-radius: 8px; }
+.boundary-screen {
+  padding: 64px 20px;
+  text-align: center;
+  font-size: 19px;
+  color: var(--ink-soft);
+}
 
-#map { height: 260px; margin: 0 12px 12px; border-radius: 8px; }
+/* 行程列表 */
+.item-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
 
-#checklist-view .checklist { list-style: none; padding: 12px; }
-#checklist-view .checklist li { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
-#checklist-view .checklist li.done span { text-decoration: line-through; color: #999; }
+/* 地点卡片 */
+.item.stop {
+  position: relative;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 12px 14px 12px 44px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--line);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.item.stop.clickable { cursor: pointer; }
+.item.stop.clickable:active { transform: scale(0.985); background: #faf9f8; }
 
-#bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: #fff; border-top: 1px solid #ddd; }
-#bottom-nav button { flex: 1; padding: 12px; border: none; background: none; font-size: 15px; }
-#bottom-nav button.active { color: #c0392b; font-weight: bold; }
+.item-number {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.item.stop:not(.clickable) { padding-left: 14px; }
+
+.item.past { opacity: 0.4; }
+.item.current.stop { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+
+.item.pending .item-title { color: var(--warn); }
+.item.confirmed .item-title { color: var(--ok); }
+
+.item-time {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 2px;
+}
+.item-title { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.35; }
+.item-detail { font-size: 13px; color: var(--ink-soft); margin-top: 4px; line-height: 1.5; }
+
+/* 交通/移动行:细一点、缩进,视觉上是"连接线"不是目的地 */
+.transit-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 14px 6px 18px;
+  margin: 0 0 8px 10px;
+  border-left: 2px dashed var(--line);
+}
+.transit-icon { font-size: 14px; line-height: 1.5; flex: 0 0 auto; }
+.transit-text { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
+.item.transit.past .transit-text { opacity: 0.7; }
+
+/* 离线缓存按钮 */
+#cache-maps-btn {
+  display: block;
+  width: calc(100% - 24px);
+  margin: 4px 12px 12px;
+  padding: 12px;
+  background: #2c2c2e;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+#cache-maps-btn:disabled { opacity: 0.6; }
+
+/* 地图 */
+#map {
+  height: 260px;
+  margin: 0 12px 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.map-marker-number {
+  width: 24px;
+  height: 24px;
+  background: var(--accent);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* 清单页 */
+#checklist-view { padding: 14px 12px; }
+#checklist-view .checklist { list-style: none; }
+#checklist-view .checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  font-size: 14.5px;
+}
+#checklist-view .checklist li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+#checklist-view .checklist li.done { background: #f8f7f6; }
+#checklist-view .checklist li.done span { text-decoration: line-through; color: #a3a3a3; }
+
+/* 底部导航 */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+#bottom-nav button {
+  flex: 1;
+  padding: 13px;
+  border: none;
+  background: none;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+#bottom-nav button.active { color: var(--accent); font-weight: 700; }

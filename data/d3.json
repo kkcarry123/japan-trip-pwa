@@ -3,14 +3,22 @@
   "date": "2026-09-14",
   "title": "户隐神社奥社一日往返(长野) + 东京塔",
   "items": [
-    { "time": "05:45", "endTime": null, "title": "新宿/东京站出发", "lat": 35.6812, "lng": 139.7671 },
-    { "time": "06:28", "endTime": "07:52", "title": "北陆新干线 东京→长野", "lat": 36.6431, "lng": 138.1875 },
-    { "time": "08:00", "endTime": "09:00", "title": "アルピコ交通巴士 长野站→户隐奥社入口", "lat": 36.7256, "lng": 138.1167 },
-    { "time": "09:10", "endTime": "11:30", "title": "户隐神社奥社·杉并木参道", "detail": "官方每年提醒黑熊/蜂类出没,建议出声、结伴同行,这个时段比官方建议的15点前下山宽裕很多", "lat": 36.7256, "lng": 138.1167 },
-    { "time": "12:00", "endTime": "13:00", "title": "午饭:户隐荞麦", "lat": 36.7180, "lng": 138.1200 },
-    { "time": "14:30", "endTime": "15:54", "title": "北陆新干线 长野→东京", "lat": 35.6812, "lng": 139.7671 },
-    { "time": "16:20", "endTime": "17:00", "title": "东京塔·白天版", "detail": "增上寺/芝公园机位,只拍照不上塔", "lat": 35.6586, "lng": 139.7454 },
-    { "time": "19:00", "endTime": "21:00", "title": "晚饭:待定", "detail": "只剩Harutaka(青空)在Waitlist候补中,鮨みずかみ已被拒", "status": "pending", "lat": 35.6717, "lng": 139.7650 },
-    { "time": "21:15", "endTime": "21:45", "title": "东京塔·夜景版", "detail": "灯光点亮到24:00,天已全黑,同一天拍白天+夜景两版", "lat": 35.6586, "lng": 139.7454 }
+    { "kind": "stop", "time": "05:45", "endTime": null, "title": "新宿/东京站出发", "detail": "全程最早起的一天", "lat": 35.6812, "lng": 139.7671 },
+    { "kind": "transit", "icon": "🚄", "time": "06:28", "endTime": "07:52", "title": "北陆新干线 东京→长野", "detail": "¥8,340,84分钟" },
+    { "kind": "transit", "icon": "🚌", "time": "08:00", "endTime": "09:00", "title": "アルピコ交通巴士 长野站→户隐奥社入口", "detail": "约1小时¥1,400" },
+    { "kind": "stop", "time": "09:10", "endTime": "11:30", "title": "户隐神社奥社·杉并木参道", "detail": "400年古杉隧道2km;官方每年提醒黑熊/蜂类出没,建议出声、结伴同行,这个时段比官方建议的15点前下山宽裕很多", "lat": 36.7256, "lng": 138.1167 },
+    { "kind": "transit", "icon": "🚶", "time": "11:30", "endTime": "12:00", "title": "参道走回中社", "detail": "步行约15分钟" },
+    { "kind": "stop", "time": "12:00", "endTime": "13:00", "title": "午饭:户隐荞麦", "detail": "¥1,300", "lat": 36.7180, "lng": 138.1200 },
+    { "kind": "transit", "icon": "🚌", "time": "13:15", "endTime": "14:15", "title": "巴士 户隐中社→长野站", "detail": "约1小时" },
+    { "kind": "transit", "icon": "🚄", "time": "14:30", "endTime": "15:54", "title": "北陆新干线 长野→东京", "detail": "¥8,340" },
+    { "kind": "transit", "icon": "🚇", "time": "16:00", "endTime": "16:20", "title": "都营三田线 东京站→御成门", "detail": "经大手町换乘,约20分钟" },
+    { "kind": "stop", "time": "16:20", "endTime": "17:00", "title": "东京塔·白天版", "detail": "增上寺/芝公园机位,五重塔+东京塔同框,只拍照不上塔", "lat": 35.6586, "lng": 139.7454 },
+    { "kind": "transit", "icon": "🚶", "time": "17:00", "endTime": "17:15", "title": "附近车站/咖啡店洗手间换装", "detail": "长裤+有领上衣;建议白天出门就把要换的衣服带在包里,省去专程回新宿酒店这一趟" },
+    { "kind": "transit", "icon": "🚇", "time": "17:15", "endTime": "17:35", "title": "东京メトロ日比谷线 神谷町→银座", "detail": "直达,约10分钟+步行" },
+    { "kind": "stop", "time": "19:00", "endTime": "21:00", "title": "晚饭:待定", "detail": "只剩Harutaka(青空)在Waitlist候补中,鮨みずかみ已被拒", "status": "pending", "lat": 35.6717, "lng": 139.7650 },
+    { "kind": "transit", "icon": "🚇", "time": "21:00", "endTime": "21:15", "title": "东京メトロ日比谷线 银座→神谷町", "detail": "直达,反向坐回去" },
+    { "kind": "stop", "time": "21:15", "endTime": "21:45", "title": "东京塔·夜景版", "detail": "灯光点亮到24:00,这个点天已全黑,塔身灯光效果最好;同一天拍到白天+夜景两个版本", "lat": 35.6586, "lng": 139.7454 },
+    { "kind": "transit", "icon": "🚶", "time": "21:45", "endTime": "22:00", "title": "步行到赤羽桥站", "detail": "约5分钟" },
+    { "kind": "transit", "icon": "🚇", "time": "22:00", "endTime": "22:15", "title": "都营大江户线 赤羽桥→新宿", "detail": "直达不换乘,约12分钟" }
   ]
 }
