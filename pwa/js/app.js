@@ -1,5 +1,6 @@
 // pwa/js/app.js
 import { getTripDay, daysUntilTrip, isTripOver } from './dateUtils.js';
+import { nowToMinutes, getScheduleStatus, parseTimeToMinutes } from './timeUtils.js';
 
 const dayTabsEl = document.getElementById('day-tabs');
 const contentEl = document.getElementById('day-content');
@@ -39,10 +40,58 @@ function renderBoundaryScreen() {
 
 function renderDay(data) {
   contentEl.innerHTML = '';
+
   const title = document.createElement('h2');
   title.textContent = `D${data.day} · ${data.date} ${data.title}`;
   contentEl.appendChild(title);
-  // 行程项渲染留给 Task 9 补充
+
+  const now = nowToMinutes(new Date());
+  const { currentIndex, nextIndex, pastIndices } = getScheduleStatus(data.items, now);
+
+  const banner = document.createElement('div');
+  banner.className = 'countdown-banner';
+  if (nextIndex !== null) {
+    const nextItem = data.items[nextIndex];
+    const mins = parseTimeToMinutes(nextItem.time) - now;
+    banner.textContent = `下一项:${nextItem.title},还有 ${mins} 分钟`;
+  } else if (currentIndex !== null) {
+    banner.textContent = `进行中:${data.items[currentIndex].title}`;
+  } else {
+    banner.textContent = '今天的行程已经结束';
+  }
+  contentEl.appendChild(banner);
+
+  const list = document.createElement('ul');
+  list.className = 'item-list';
+  data.items.forEach((item, i) => {
+    const li = document.createElement('li');
+    li.className = 'item';
+    if (pastIndices.has(i)) li.classList.add('past');
+    if (i === currentIndex) li.classList.add('current');
+    if (item.status === 'confirmed') li.classList.add('confirmed');
+    if (item.status === 'pending') li.classList.add('pending');
+
+    const time = document.createElement('span');
+    time.className = 'item-time';
+    time.textContent = item.endTime ? `${item.time}–${item.endTime}` : item.time;
+
+    const label = document.createElement('span');
+    label.className = 'item-title';
+    label.textContent = item.title + (item.status === 'confirmed' ? ' ✅' : item.status === 'pending' ? ' ⚠' : '');
+
+    li.appendChild(time);
+    li.appendChild(label);
+
+    if (item.detail) {
+      const detail = document.createElement('p');
+      detail.className = 'item-detail';
+      detail.textContent = item.detail;
+      li.appendChild(detail);
+    }
+
+    list.appendChild(li);
+  });
+  contentEl.appendChild(list);
 }
 
 async function switchDay(day) {
@@ -60,6 +109,10 @@ async function init() {
   } else {
     await switchDay(tripDay);
   }
+
+  setInterval(() => {
+    if (currentDay !== null) renderDay(dayCache[currentDay]);
+  }, 60000);
 }
 
 init();
