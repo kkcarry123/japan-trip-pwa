@@ -1,6 +1,7 @@
 // pwa/js/app.js
 import { getTripDay, daysUntilTrip, isTripOver } from './dateUtils.js';
 import { nowToMinutes, getScheduleStatus, parseTimeToMinutes } from './timeUtils.js';
+import { initMap, showDayOnMap } from './map.js';
 
 const dayTabsEl = document.getElementById('day-tabs');
 const contentEl = document.getElementById('day-content');
@@ -99,9 +100,12 @@ async function switchDay(day) {
   renderTabs(day);
   const data = await loadDay(day);
   renderDay(data);
+  showDayOnMap(data.items);
 }
 
 async function init() {
+  initMap();
+
   const tripDay = getTripDay(new Date());
   if (tripDay === null) {
     renderTabs(1);
