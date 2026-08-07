@@ -104,6 +104,10 @@ async function switchDay(day) {
 }
 
 async function init() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+
   initMap();
 
   const tripDay = getTripDay(new Date());
