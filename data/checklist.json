@@ -3,6 +3,6 @@
   { "id": "d8-dinner", "text": "D8(9/19)晚饭悬而未决,原定祭典屋台", "day": 8 },
   { "id": "shinjuku-hotel", "text": "新宿酒店要不要升级成WPU HOTEL Shinjuku(约710元/晚)", "day": 1 },
   { "id": "kyoto-lightup", "text": "京都夜灯(大覚寺大沢池点灯)要不要塞进D5晚上,需权衡睡眠", "day": 5 },
-  { "id": "reserve-tickets", "text": "指定席开票日期(乘车日1个月前10:00):D3北陆新干线8/14、D4踊り子号8/15(全席指定必须订)、D5东海道新干线8/16、D9南海rapi:t 8/20,えきねっと/EX予约账号建议现在就注册好", "day": 3 },
+  { "id": "reserve-tickets", "text": "开票日期(乘车日1个月前10:00):D3北陆新干线8/14、D4踊り子号8/15(全席指定无站票必须订)、D5东海道新干线8/16(有自由席可保底)、D9南海rapi:t 8/20(全车指定无站票);D3/D4用JR-EAST Train Reservation(eki-net.com/en/jreast-train-reservation),D5用Smart EX(smart-ex.jp),两个账号建议现在就注册好", "day": 3 },
   { "id": "esim-swap", "text": "国行iPhone不支持eSIM,记得把日本SIM卡换上(拆哪张国内卡想清楚),见出行实用指南.md", "day": 1 }
 ]
