@@ -1,5 +1,5 @@
 // pwa/sw.js
-const SHELL_CACHE = 'app-shell-v4';
+const SHELL_CACHE = 'app-shell-v5';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -10,6 +10,7 @@ const SHELL_FILES = [
   './js/timeUtils.js',
   './js/map.js',
   './js/checklist.js',
+  './js/theme.js',
   './vendor/leaflet/leaflet.js',
   './vendor/leaflet/leaflet.css',
   './vendor/leaflet/images/marker-icon.png',

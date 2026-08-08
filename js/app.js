@@ -3,6 +3,7 @@ import { getTripDay, daysUntilTrip, isTripOver } from './dateUtils.js';
 import { nowToMinutes, getScheduleStatus } from './timeUtils.js';
 import { initMap, showDayOnMap, focusPoint } from './map.js';
 import { initChecklist } from './checklist.js';
+import { initTheme } from './theme.js';
 
 const dayTabsEl = document.getElementById('day-tabs');
 const contentEl = document.getElementById('day-content');
@@ -140,6 +141,7 @@ async function init() {
     navigator.serviceWorker.register('./sw.js');
   }
 
+  initTheme();
   initMap();
   initChecklist();
   initBottomNav();

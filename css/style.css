@@ -2,52 +2,122 @@
 
 :root {
   --accent: #c0392b;
-  --accent-dark: #a5321f;
   --ok: #1f9d55;
   --warn: #c0392b;
-  --ink: #1c1c1e;
-  --ink-soft: #6b6b70;
-  --line: #e7e5e2;
-  --bg: #f4f3f1;
-  --card: #ffffff;
+
+  --blob-a: #6ec6ff;
+  --blob-b: #b98cff;
+  --blob-c: #ff9aa8;
+
+  /* 浅色毛玻璃 */
+  --glass-light-bg: rgba(255, 255, 255, 0.55);
+  --glass-light-bg-strong: rgba(255, 255, 255, 0.74);
+  --glass-light-ink: #1c1c1e;
+  --glass-light-ink-soft: rgba(60, 60, 67, 0.6);
+  --glass-light-hairline: rgba(0, 0, 0, 0.07);
+  --glass-light-wallpaper: linear-gradient(180deg, #eef1fb, #fbeef4 55%, #eef7f2);
+
+  /* 深色毛玻璃 */
+  --glass-dark-bg: rgba(30, 30, 32, 0.55);
+  --glass-dark-bg-strong: rgba(20, 20, 22, 0.76);
+  --glass-dark-ink: #f5f5f7;
+  --glass-dark-ink-soft: rgba(235, 235, 245, 0.6);
+  --glass-dark-hairline: rgba(255, 255, 255, 0.1);
+  --glass-dark-wallpaper: #0b0b0f;
+}
+
+html[data-glass="light"] {
+  --ink: var(--glass-light-ink);
+  --ink-soft: var(--glass-light-ink-soft);
+  --hairline: var(--glass-light-hairline);
+  --surface: var(--glass-light-bg);
+  --surface-strong: var(--glass-light-bg-strong);
+}
+html[data-glass="dark"] {
+  --ink: var(--glass-dark-ink);
+  --ink-soft: var(--glass-dark-ink-soft);
+  --hairline: var(--glass-dark-hairline);
+  --surface: var(--glass-dark-bg);
+  --surface-strong: var(--glass-dark-bg-strong);
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans", sans-serif;
-  background: var(--bg);
   color: var(--ink);
   padding-bottom: 64px;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+  transition: color 0.35s ease;
+}
+
+/* 全屏壁纸(毛玻璃透出的底色) */
+#wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  transition: background 0.35s ease;
+}
+html[data-glass="light"] #wallpaper { background: var(--glass-light-wallpaper); }
+html[data-glass="dark"] #wallpaper { background: var(--glass-dark-wallpaper); }
+#wallpaper .blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: 0.7; transition: opacity 0.35s ease; }
+html[data-glass="dark"] #wallpaper .blob { opacity: 0.5; filter: blur(85px); }
+#wallpaper .b1 { width: 46vw; height: 46vw; max-width: 420px; max-height: 420px; background: var(--blob-a); top: -10vw; left: -14vw; }
+#wallpaper .b2 { width: 40vw; height: 40vw; max-width: 380px; max-height: 380px; background: var(--blob-b); top: 30vh; right: -16vw; }
+#wallpaper .b3 { width: 44vw; height: 44vw; max-width: 400px; max-height: 400px; background: var(--blob-c); bottom: -12vw; left: 6vw; }
+
+/* 浅/深色切换按钮 */
+#theme-toggle {
+  position: fixed;
+  top: calc(10px + env(safe-area-inset-top, 0px));
+  right: 12px;
+  z-index: 20;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  background: var(--surface-strong);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 /* 顶部日期切换条 */
 #day-tabs {
   display: flex;
   overflow-x: auto;
-  background: var(--accent);
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 10px 52px 10px 10px;
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  background: var(--surface);
+  border-bottom: 1px solid var(--hairline);
   scrollbar-width: none;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 #day-tabs::-webkit-scrollbar { display: none; }
 #day-tabs .tab {
   flex: 0 0 auto;
-  padding: 14px 18px 12px;
+  padding: 8px 14px;
+  margin-right: 2px;
+  border-radius: 20px;
   background: none;
   border: none;
-  color: #fff;
-  opacity: 0.62;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: opacity 0.15s ease;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 #day-tabs .tab.active {
-  opacity: 1;
-  font-weight: 700;
-  border-bottom: 3px solid #fff;
+  background: var(--accent);
+  color: #fff;
 }
 
 #day-content { padding: 14px 12px 4px; }
@@ -57,6 +127,7 @@ body {
   margin-bottom: 12px;
   padding: 0 2px;
   color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 .boundary-screen {
@@ -69,19 +140,20 @@ body {
 /* 行程列表 */
 .item-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
 
-/* 地点卡片 */
+/* 地点卡片(毛玻璃) */
 .item.stop {
   position: relative;
-  background: var(--card);
-  border-radius: 12px;
+  background: var(--surface-strong);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-radius: 16px;
   padding: 12px 14px 12px 44px;
   margin-bottom: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--line);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  border: 1px solid var(--hairline);
+  transition: transform 0.1s ease, background 0.35s ease, border-color 0.35s ease;
 }
 .item.stop.clickable { cursor: pointer; }
-.item.stop.clickable:active { transform: scale(0.985); background: #faf9f8; }
+.item.stop.clickable:active { transform: scale(0.985); }
 
 .item-number {
   position: absolute;
@@ -114,7 +186,7 @@ body {
   font-variant-numeric: tabular-nums;
   margin-bottom: 2px;
 }
-.item-title { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.35; }
+.item-title { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.35; color: var(--ink); }
 .item-detail { font-size: 13px; color: var(--ink-soft); margin-top: 4px; line-height: 1.5; }
 
 /* 交通/移动行:细一点、缩进,视觉上是"连接线"不是目的地 */
@@ -124,34 +196,38 @@ body {
   gap: 8px;
   padding: 6px 14px 6px 18px;
   margin: 0 0 8px 10px;
-  border-left: 2px dashed var(--line);
+  border-left: 2px dashed var(--hairline);
 }
 .transit-icon { font-size: 14px; line-height: 1.5; flex: 0 0 auto; }
 .transit-text { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
 .item.transit.past .transit-text { opacity: 0.7; }
 
-/* 离线缓存按钮 */
+/* 离线缓存按钮(玻璃) */
 #cache-maps-btn {
   display: block;
   width: calc(100% - 24px);
   margin: 4px 12px 12px;
   padding: 12px;
-  background: #2c2c2e;
   color: #fff;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
   font-size: 14.5px;
   font-weight: 600;
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  transition: background 0.35s ease;
 }
+html[data-glass="light"] #cache-maps-btn { background: rgba(28, 28, 30, 0.72); }
+html[data-glass="dark"] #cache-maps-btn { background: rgba(255, 255, 255, 0.14); }
 #cache-maps-btn:disabled { opacity: 0.6; }
 
-/* 地图 */
+/* 地图(玻璃描边) */
 #map {
   height: 260px;
   margin: 0 12px 12px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--hairline);
 }
 .map-marker-number {
   width: 24px;
@@ -175,12 +251,15 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--card);
-  border-radius: 12px;
+  background: var(--surface-strong);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-radius: 16px;
   padding: 12px 14px;
   margin-bottom: 8px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--hairline);
   font-size: 14.5px;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 #checklist-view .checklist li input[type="checkbox"] {
   width: 20px;
@@ -188,19 +267,23 @@ body {
   accent-color: var(--accent);
   flex: 0 0 auto;
 }
-#checklist-view .checklist li.done { background: #f8f7f6; }
-#checklist-view .checklist li.done span { text-decoration: line-through; color: #a3a3a3; }
+#checklist-view .checklist li.done { opacity: 0.6; }
+#checklist-view .checklist li.done span { text-decoration: line-through; color: var(--ink-soft); }
 
-/* 底部导航 */
+/* 底部导航(玻璃) */
 #bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10;
   display: flex;
-  background: #fff;
-  border-top: 1px solid var(--line);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  background: var(--surface);
+  border-top: 1px solid var(--hairline);
   padding-bottom: env(safe-area-inset-bottom);
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 #bottom-nav button {
   flex: 1;
