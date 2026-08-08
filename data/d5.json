@@ -5,8 +5,7 @@
   "items": [
     { "kind": "stop", "time": "07:00", "endTime": "08:30", "title": "旅馆早饭+再泡一轮私人露天温泉", "lat": 34.8820, "lng": 139.1230 },
     { "kind": "stop", "time": "09:00", "endTime": null, "title": "花の雲退房" },
-    { "kind": "transit", "icon": "🚃", "time": "09:10", "endTime": "09:15", "title": "伊豆急行线 城崎海岸→伊豆高原", "detail": "可能是リゾート21观光列车キンメ電車,不用预约" },
-    { "kind": "transit", "icon": "🚃", "time": "09:20", "endTime": "10:10", "title": "伊豆急行线+JR伊东线 伊豆高原→热海", "detail": "约50分钟¥990" },
+    { "kind": "transit", "icon": "🚃", "time": "09:10", "endTime": "10:10", "title": "一趟车直坐到热海,中途不用换乘", "detail": "城崎海岸→热海;伊豆急行线跨界直通JR伊东线,是同一趟车,坐着不动就行;这段可能是リゾート21观光列车キンメ電車,普通乘车券/刷Suica即可,不用预约,约¥990" },
     { "kind": "stop", "time": "10:15", "endTime": "11:00", "title": "热海阳光海滩", "detail": "人工月牙湾配棕榈树", "lat": 35.0961, "lng": 139.0778 },
     { "kind": "stop", "time": "11:00", "endTime": "12:20", "title": "午饭:热海站前干物定食" },
     { "kind": "transit", "icon": "🚄", "time": "12:50", "endTime": "15:07", "title": "东海道新干线(ひかり) 热海→京都", "detail": "¥10,780,约2小时10分" },
