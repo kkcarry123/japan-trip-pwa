@@ -1,7 +1,7 @@
 {
   "day": 2,
   "date": "2026-09-13",
-  "title": "浅草 → 上野 → 秋叶原 → 原宿 → 涉谷",
+  "title": "浅草 → 上野 → 秋叶原 → 原宿 → 涉谷 → みかわ是山居",
   "items": [
     { "kind": "stop", "time": "07:00", "endTime": "08:30", "title": "浅草寺+雷门+仲见世", "detail": "清晨没人,最出片", "lat": 35.7148, "lng": 139.7967 },
     { "kind": "stop", "time": "08:30", "endTime": "09:15", "title": "早饭:浅草咖啡店+现烤人形烧", "lat": 35.7148, "lng": 139.7967 },
@@ -14,10 +14,10 @@
     { "kind": "transit", "icon": "🚃", "time": "15:20", "endTime": "15:45", "title": "JR山手线 秋叶原→原宿", "detail": "约20–25分钟¥170" },
     { "kind": "stop", "time": "15:45", "endTime": "16:30", "title": "Fender Flagship Tokyo", "detail": "原宿神宫前,四层楼陈列+定制展示区+Fender Cafe,营业到20:00", "lat": 35.6702, "lng": 139.7065 },
     { "kind": "transit", "icon": "🚃", "time": "16:35", "endTime": "16:50", "title": "JR山手线 原宿→涉谷", "detail": "仅1站" },
-    { "kind": "stop", "time": "16:50", "endTime": "17:50", "title": "涉谷乐器店聚落", "detail": "イケベ渋谷旗艦店+石桥乐器涉谷店;SHIBUYA SKY候选待定,取决于当天晚饭最终排哪家(门票8/16才开卖)", "lat": 35.6595, "lng": 139.7005 },
-    { "kind": "transit", "icon": "🚇", "time": "17:50", "endTime": "18:15", "title": "移动→晚饭地点", "detail": "视D1近藤结果而定:是山居在门前仲町,从涉谷过去要换乘一次约30–35分钟;若是炭治郎则回新宿" },
-    { "kind": "stop", "time": "19:00", "endTime": "21:00", "title": "晚饭:待定", "detail": "若近藤9/12成功→炭治郎和牛自助;若近藤失败→みかわ是山居(用户反馈好预约,不用紧盯监控,末次点单19:30)", "status": "pending", "lat": 35.6733, "lng": 139.7930 },
-    { "kind": "transit", "icon": "🚇", "time": "21:00", "endTime": "21:30", "title": "移动→新宿", "detail": "视晚饭地点而定" },
+    { "kind": "stop", "time": "16:50", "endTime": "17:50", "title": "涉谷乐器店聚落", "detail": "イケベ渋谷旗艦店+石桥乐器涉谷店", "lat": 35.6595, "lng": 139.7005 },
+    { "kind": "transit", "icon": "🚇", "time": "17:50", "endTime": "18:15", "title": "移动:涉谷→门前仲町", "detail": "换乘一次,约30–35分钟" },
+    { "kind": "stop", "time": "19:00", "endTime": "21:00", "title": "晚饭:みかわ是山居", "detail": "主厨早乙女哲哉,业界公认日本当代天妇罗第一人;⚠还没订,需要本人上TableCheck预约(禁止代订);末次点单19:30", "status": "pending", "lat": 35.6733, "lng": 139.7930 },
+    { "kind": "transit", "icon": "🚇", "time": "21:00", "endTime": "21:30", "title": "移动:门前仲町→新宿", "detail": "换乘一次,约30–35分钟" },
     { "kind": "stop", "time": "21:30", "endTime": "22:00", "title": "歌舞伎町顺路收尾", "lat": 35.6950, "lng": 139.7020 }
   ]
 }
