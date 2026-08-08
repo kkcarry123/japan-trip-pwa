@@ -1,7 +1,7 @@
 {
   "day": 3,
   "date": "2026-09-14",
-  "title": "户隐神社奥社一日往返(长野) + 东京塔",
+  "title": "户隐神社奥社一日往返(长野) + 东京塔 + 鮨将司",
   "items": [
     { "kind": "stop", "time": "05:45", "endTime": null, "title": "新宿/东京站出发", "detail": "全程最早起的一天", "lat": 35.6812, "lng": 139.7671 },
     { "kind": "transit", "icon": "🚄", "time": "06:28", "endTime": "07:52", "title": "北陆新干线 东京→长野", "detail": "¥8,340,84分钟" },
@@ -14,11 +14,12 @@
     { "kind": "transit", "icon": "🚇", "time": "16:00", "endTime": "16:20", "title": "都营三田线 东京站→御成门", "detail": "经大手町换乘,约20分钟" },
     { "kind": "stop", "time": "16:20", "endTime": "17:00", "title": "东京塔·白天版", "detail": "增上寺/芝公园机位,五重塔+东京塔同框,只拍照不上塔", "lat": 35.6586, "lng": 139.7454 },
     { "kind": "transit", "icon": "🚶", "time": "17:00", "endTime": "17:15", "title": "附近车站/咖啡店洗手间换装", "detail": "长裤+有领上衣;建议白天出门就把要换的衣服带在包里,省去专程回新宿酒店这一趟" },
-    { "kind": "transit", "icon": "🚇", "time": "17:15", "endTime": "17:35", "title": "东京メトロ日比谷线 神谷町→银座", "detail": "直达,约10分钟+步行" },
-    { "kind": "stop", "time": "19:00", "endTime": "21:00", "title": "晚饭:待定", "detail": "只剩Harutaka(青空)在Waitlist候补中,鮨みずかみ已被拒", "status": "pending", "lat": 35.6717, "lng": 139.7650 },
-    { "kind": "transit", "icon": "🚇", "time": "21:00", "endTime": "21:15", "title": "东京メトロ日比谷线 银座→神谷町", "detail": "直达,反向坐回去" },
-    { "kind": "stop", "time": "21:15", "endTime": "21:45", "title": "东京塔·夜景版", "detail": "灯光点亮到24:00,这个点天已全黑,塔身灯光效果最好;同一天拍到白天+夜景两个版本", "lat": 35.6586, "lng": 139.7454 },
-    { "kind": "transit", "icon": "🚶", "time": "21:45", "endTime": "22:00", "title": "步行到赤羽桥站", "detail": "约5分钟" },
-    { "kind": "transit", "icon": "🚇", "time": "22:00", "endTime": "22:15", "title": "都营大江户线 赤羽桥→新宿", "detail": "直达不换乘,约12分钟" }
+    { "kind": "transit", "icon": "🚇", "time": "17:15", "endTime": "17:35", "title": "都营大江户线 赤羽桥→青山一丁目", "detail": "直达,约15分钟" },
+    { "kind": "stop", "time": "17:35", "endTime": "20:00", "title": "表参道/青山一带自由活动", "detail": "大段空闲时间,不用赶", "lat": 35.6702, "lng": 139.7127 },
+    { "kind": "stop", "time": "20:00", "endTime": "22:00", "title": "晚饭:鮨将司(Sushi Masashi)", "detail": "米其林一星(2022年起连续四五年蝉联),东京都港区北青山2-9-9外苑いちょうの杜7F,最近站外苑前/青山一丁目,课程¥25,300–33,000;预约名lin jingyi", "status": "confirmed", "lat": 35.6726, "lng": 139.7199 },
+    { "kind": "transit", "icon": "🚇", "time": "22:00", "endTime": "22:20", "title": "都营大江户线 青山一丁目→赤羽桥", "detail": "反向坐回去" },
+    { "kind": "stop", "time": "22:20", "endTime": "22:50", "title": "东京塔·夜景版", "detail": "灯光点亮到24:00,这个点天已全黑,塔身灯光效果最好;同一天拍到白天+夜景两个版本;⚠D4次日6:30要交行李睡眠偏紧,不想赶可以跳过这段直接回酒店", "lat": 35.6586, "lng": 139.7454 },
+    { "kind": "transit", "icon": "🚶", "time": "22:50", "endTime": "23:05", "title": "步行到赤羽桥站", "detail": "约5分钟" },
+    { "kind": "transit", "icon": "🚇", "time": "23:05", "endTime": "23:20", "title": "都营大江户线 赤羽桥→新宿", "detail": "直达不换乘,约12分钟" }
   ]
 }
