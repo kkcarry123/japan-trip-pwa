@@ -3,16 +3,16 @@
   "date": "2026-09-15",
   "title": "东京 → 伊豆(住花の雲)",
   "items": [
-    { "kind": "stop", "time": "07:30", "endTime": "08:00", "title": "早餐+退房+大行李交前台寄京都酒店", "detail": "宅急便约¥2,500,9/16白天到;不用起太早,踊り子号9点才发车;当天收件截止时间各酒店不同,入住时问一句前台" },
-    { "kind": "transit", "icon": "🚃", "time": "08:05", "endTime": "08:30", "title": "新宿→东京站", "detail": "JR中央线快速直达约14分钟,或山手线约20分钟" },
-    { "kind": "transit", "icon": "🚄", "time": "09:00", "endTime": "11:02", "title": "特急踊り子1号 东京→伊豆高原", "detail": "全席指定制,没有自由席/站票,没订到就真上不了车,约¥6,500;JR-EAST Train Reservation(eki-net.com/en/jreast-train-reservation) 8/15(乘车日1个月前10:00)开票,建议当天订;沿相模湾南下,车厢里能看到海" },
-    { "kind": "stop", "time": "11:15", "endTime": "12:30", "title": "午饭:伊豆高原站附近海鲜定食", "detail": "¥1,800起", "lat": 34.8886, "lng": 139.0961 },
-    { "kind": "transit", "icon": "🚌", "time": "12:45", "endTime": null, "title": "东海巴士 伊豆高原站→大室山缆车站", "detail": "约16分钟,或打车约12分钟" },
-    { "kind": "stop", "time": "13:00", "endTime": "14:00", "title": "大室山登山缆车", "detail": "山顶360度眺望伊豆半岛、天城连山、相模湾,天气好可见富士山", "lat": 34.9012, "lng": 139.1156 },
-    { "kind": "transit", "icon": "🚌", "time": "14:00", "endTime": "14:20", "title": "巴士/打车 大室山→城崎海岸", "detail": "约15分钟" },
-    { "kind": "stop", "time": "14:20", "endTime": "16:00", "title": "城崎海岸·门胁吊桥", "detail": "步道部分无护栏注意脚下,日本草丛常年有蝮蛇,穿包脚鞋别伸手进草丛石缝", "lat": 34.8814, "lng": 139.1264 },
-    { "kind": "transit", "icon": "🚶", "time": "16:00", "endTime": "16:05", "title": "步行到花の雲", "detail": "仅283米,不用打车" },
-    { "kind": "stop", "time": "16:30", "endTime": null, "title": "入住花の雲", "detail": "一泊二食,全室私人露天温泉,静岡県伊東市富戸925-48,电话0557-33-1155", "status": "confirmed", "lat": 34.8820, "lng": 139.1230 },
-    { "kind": "stop", "time": "18:00", "endTime": "19:30", "title": "晚饭:客室内创作怀石料理", "detail": "主厨手作,不用换地方", "status": "confirmed", "lat": 34.8820, "lng": 139.1230 }
+    { "kind": "stop", "time": "07:30", "endTime": "08:00", "title": "早餐+退房+大行李交前台寄京都酒店", "detail": "宅急便约¥2,500,9/16白天到" },
+    { "kind": "transit", "icon": "🚃", "time": "08:05", "endTime": "08:30", "title": "新宿7/8号站台→东京站", "detail": "JR中央线快速直达约14分钟" },
+    { "kind": "transit", "icon": "🚄", "time": "09:00", "endTime": "11:02", "title": "特急踊り子1号 东京站东海道线1-2号月台→伊豆高原", "detail": "全席指定制,约¥6,500;沿相模湾南下,左侧A席能看海和富士山" },
+    { "kind": "stop", "time": "11:15", "endTime": "12:30", "title": "午饭:伊豆高原站附近海鲜定食", "lat": 34.8886, "lng": 139.0961 },
+    { "kind": "transit", "icon": "🚌", "time": "12:45", "endTime": null, "title": "东海巴士 伊豆高原站→大室山", "detail": "坐\"シャボテン公園行き\"或\"シャボテン公園・大室山行き\"到终点站,约16分钟,下车正对缆车入口" },
+    { "kind": "stop", "time": "13:00", "endTime": "14:00", "title": "大室山登山缆车", "detail": "山顶360度眺望,天气好可见富士山", "lat": 34.9012, "lng": 139.1156 },
+    { "kind": "transit", "icon": "🚌", "time": "14:00", "endTime": "14:20", "title": "巴士/打车 大室山→城崎海岸" },
+    { "kind": "stop", "time": "14:20", "endTime": "16:00", "title": "城崎海岸·门胁吊桥", "detail": "步道部分无护栏,穿包脚鞋别伸手进草丛石缝(有蝮蛇)", "lat": 34.8814, "lng": 139.1264 },
+    { "kind": "transit", "icon": "🚶", "time": "16:00", "endTime": "16:05", "title": "步行到花の雲", "detail": "仅283米" },
+    { "kind": "stop", "time": "16:30", "endTime": null, "title": "入住花の雲", "detail": "一泊二食,全室私人露天温泉,静岡県伊東市富戸925-48", "status": "confirmed", "lat": 34.8820, "lng": 139.1230 },
+    { "kind": "stop", "time": "18:00", "endTime": "19:30", "title": "晚饭:客室内创作怀石料理", "status": "confirmed", "lat": 34.8820, "lng": 139.1230 }
   ]
 }

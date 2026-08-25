@@ -1,8 +1,9 @@
 [
-  { "id": "d2-isayama", "text": "D2(9/13)晚饭:近藤最终被拒,定案吃みかわ是山居,还没订——TableCheck上本人操作,禁止代订", "day": 2 },
-  { "id": "d8-dinner", "text": "D8(9/19)晚饭悬而未决,原定祭典屋台", "day": 8 },
-  { "id": "shinjuku-hotel", "text": "新宿酒店要不要升级成WPU HOTEL Shinjuku(约710元/晚)", "day": 1 },
-  { "id": "kyoto-lightup", "text": "京都夜灯(大覚寺大沢池点灯)要不要塞进D5晚上,需权衡睡眠", "day": 5 },
-  { "id": "reserve-tickets", "text": "开票日期(乘车日1个月前10:00):D3北陆新干线8/14、D4踊り子号8/15(全席指定无站票必须订)、D5东海道新干线8/16(有自由席可保底)、D9南海rapi:t 8/20(全车指定无站票);D3/D4用JR-EAST Train Reservation(eki-net.com/en/jreast-train-reservation),D5用Smart EX(smart-ex.jp),两个账号建议现在就注册好", "day": 3 },
+  { "id": "d8-dinner", "text": "D8(9/19)晚饭悬而未决,原定祭典屋台,若想升级寿司需另找方案", "day": 8 },
+  { "id": "d7-aragawa", "text": "D7(9/18)晚饭Aragawa太贵,还没最终决定要不要取消;取消前先去食べログapp确认取消费,3周多前大概率免费或很低;若取消则整个神户段一起去掉", "day": 7 },
+  { "id": "shinjuku-hotel", "text": "新宿酒店要不要升级成WPU HOTEL Shinjuku(约710元/晚),目前默认ホテルリブマックス", "day": 1 },
+  { "id": "tnm-ticket", "text": "东京国立博物馆门票:每周五中午12点放下周的票,D2(9/13)对应的放票日是9/4周五12:00,得等到那天才能订", "day": 2 },
+  { "id": "shibuya-sky", "text": "SHIBUYA SKY可选项,8/30开票(入场日前14天),自己看当天精神状态决定去不去", "day": 2 },
+  { "id": "rapit-ticket", "text": "南海rapi:t(D9):不用国内提前订,优先9/18或9/19在难波站窗口现场买纸质票,提前1–2天买好别等当天", "day": 9 },
   { "id": "esim-swap", "text": "国行iPhone不支持eSIM,记得把日本SIM卡换上(拆哪张国内卡想清楚),见出行实用指南.md", "day": 1 }
 ]

@@ -3,14 +3,15 @@
   "date": "2026-09-20",
   "title": "大阪 → 上海",
   "items": [
-    { "kind": "stop", "time": "08:00", "endTime": "09:30", "title": "心斋桥+道顿堀购物", "detail": "药妆9点开门,伴手礼一次买齐;退税记得带护照", "lat": 34.6717, "lng": 135.5010 },
-    { "kind": "transit", "icon": "🚶", "time": "09:30", "endTime": "09:45", "title": "步行回难波站方向" },
-    { "kind": "stop", "time": "09:45", "endTime": "10:45", "title": "午饭:一兰道顿堀总本店", "detail": "或蟹道乐本店", "lat": 34.6687, "lng": 135.5013 },
-    { "kind": "transit", "icon": "🚄", "time": "11:00", "endTime": "11:40", "title": "南海rapi:t特急 难波→关西机场", "detail": "最快34分钟,含买票进站预留到40分钟;全车指定席没有自由席/站票,8/20(1个月前10:00)开票,南海App买数字车票或站内窗口/机器现场买都行,建议别拖到最后" },
-    { "kind": "stop", "time": "11:45", "endTime": "12:30", "title": "办理登机手续+托运行李" },
-    { "kind": "stop", "time": "12:30", "endTime": "13:00", "title": "出境审查+安检", "detail": "国际线建议预留充分,暑期人多排队可能久" },
-    { "kind": "stop", "time": "13:00", "endTime": "15:00", "title": "关西机场免税店购物", "detail": "国际线候机区免税店范围大,化妆品/烟酒/伴手礼都有", "lat": 34.4347, "lng": 135.2441 },
+    { "kind": "stop", "time": "08:00", "endTime": "10:45", "title": "心斋桥+道顿堀购物", "detail": "药妆扫货、伴手礼,时间比原计划更宽裕", "lat": 34.6717, "lng": 135.5010 },
+    { "kind": "transit", "icon": "🚶", "time": "10:50", "endTime": "11:00", "title": "步行至なんばウォーク" },
+    { "kind": "stop", "time": "11:00", "endTime": "11:40", "title": "午饭:卵と私 なんばウォーク店", "detail": "大阪市中央区难波2 なんばウォーク1-11,难波站地下街直连;スフレオムライス,开店即入不用等位", "lat": 34.6656, "lng": 135.5023 },
+    { "kind": "transit", "icon": "🚶", "time": "11:40", "endTime": "11:50", "title": "步行至南海なんば站", "detail": "经3楼北检票口连通,约5分钟" },
+    { "kind": "transit", "icon": "🚄", "time": "11:50", "endTime": "12:30", "title": "南海なんば站9号站台乘南海rapi:t特急→关西机场", "detail": "最快34分钟;纸质票已提前1–2天在难波站窗口买好" },
+    { "kind": "stop", "time": "12:35", "endTime": "13:15", "title": "办理登机手续+托运行李" },
+    { "kind": "stop", "time": "13:15", "endTime": "13:45", "title": "出境审查+安检" },
+    { "kind": "stop", "time": "13:45", "endTime": "15:00", "title": "关西机场免税店购物", "detail": "约1小时15分钟,比原计划压缩45分钟(让给了卵と私那顿)", "lat": 34.4347, "lng": 135.2441 },
     { "kind": "transit", "icon": "🚶", "time": "15:00", "endTime": "15:20", "title": "前往登机口" },
-    { "kind": "stop", "time": "15:30", "endTime": null, "title": "起飞:KIX → 浦东", "detail": "订15:00后的航班" }
+    { "kind": "stop", "time": "15:30", "endTime": null, "title": "起飞:KIX → 浦东" }
   ]
 }
