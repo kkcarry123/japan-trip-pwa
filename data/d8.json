@@ -1,15 +1,11 @@
 {
   "day": 8,
   "date": "2026-09-19",
-  "title": "大阪城 → 岸和田だんじり祭·宵宫",
+  "title": "环球影城(USJ)全天",
   "items": [
-    { "kind": "stop", "time": "08:00", "endTime": "08:45", "title": "早饭:难波咖啡店/酒店" },
-    { "kind": "stop", "time": "09:00", "endTime": "11:00", "title": "大阪城天守阁+公园", "lat": 34.6873, "lng": 135.5262 },
-    { "kind": "stop", "time": "11:30", "endTime": "13:00", "title": "午饭:かに道楽の奥座敷 網元本館", "detail": "大阪市中央区西心斎橋2-13-15,难波站步行5分钟,全包间,¥10,000–15,000", "status": "confirmed", "lat": 34.6708, "lng": 135.5011 },
-    { "kind": "transit", "icon": "🚃", "time": "13:30", "endTime": null, "title": "南海なんば站5–9号站台乘南海本线急行→岸和田", "detail": "不是1–4号站台的高野线,约30分钟" },
-    { "kind": "stop", "time": "14:00", "endTime": "17:00", "title": "だんじり午后曳行", "detail": "站警戒线后面看やりまわし,跟着本地人站", "lat": 34.4632, "lng": 135.3711 },
-    { "kind": "stop", "time": "17:00", "endTime": "18:30", "title": "晚饭:待定", "detail": "原定祭典屋台,若想升级寿司需另找方案", "status": "pending", "lat": 34.4632, "lng": 135.3711 },
-    { "kind": "stop", "time": "19:00", "endTime": "21:00", "title": "灯入れ曳行", "detail": "地车挂满200只红灯笼夜巡", "lat": 34.4632, "lng": 135.3711 },
-    { "kind": "stop", "time": "21:30", "endTime": "22:30", "title": "回难波;道顿堀格力高跑男夜景打卡" }
+    { "kind": "stop", "time": "07:15", "endTime": "07:45", "title": "早饭:难波咖啡店/酒店" },
+    { "kind": "transit", "icon": "🚃", "time": "07:45", "endTime": "08:10", "title": "难波→USJ", "detail": "阪神电车难波→西九条(换乘1次)→JR夢咲线→ユニバーサルシティ站,约20-25分钟,步行3-5分钟进园" },
+    { "kind": "stop", "time": "08:30", "endTime": "21:00", "title": "USJ全天开园玩到闭园", "detail": "万圣节活动期(9/10-11/8)+白银周周六,最拥挤档期之一;Super Nintendo World/哈利波特魔法世界/侏罗纪公园/小小兵乐园;惊悚迷路建议买エクスプレスパス;ハロウィーン・ホラー・ナイト是否需要额外オールナイト门票去官网确认", "status": "pending", "lat": 34.6654, "lng": 135.4322 },
+    { "kind": "transit", "icon": "🚃", "time": "21:00", "endTime": null, "title": "USJ→难波", "detail": "原路反向:JR夢咲线→西九条→阪神电车→难波,视精神状态决定几点撤" }
   ]
 }
