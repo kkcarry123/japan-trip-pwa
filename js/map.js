@@ -21,6 +21,13 @@ function showDayOnMap(items) {
   const points = items.filter((i) => i.lat != null && i.lng != null);
   if (points.length === 0) return;
 
+  if (points.length > 1) {
+    L.polyline(
+      points.map((p) => [p.lat, p.lng]),
+      { color: '#c0392b', weight: 3, opacity: 0.55, dashArray: '2 10', lineCap: 'round' }
+    ).addTo(markersLayer);
+  }
+
   points.forEach((item, i) => {
     const marker = L.marker([item.lat, item.lng]).addTo(markersLayer);
     const numberIcon = L.divIcon({

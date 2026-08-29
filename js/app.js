@@ -106,6 +106,17 @@ function renderDay(data) {
         detail.textContent = item.detail;
         li.appendChild(detail);
       }
+
+      if (hasPoint) {
+        const navBtn = document.createElement('a');
+        navBtn.className = 'item-navigate';
+        navBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${item.lat},${item.lng}&travelmode=transit`;
+        navBtn.target = '_blank';
+        navBtn.rel = 'noopener';
+        navBtn.textContent = '🧭 用地图App导航';
+        navBtn.addEventListener('click', (e) => e.stopPropagation());
+        li.appendChild(navBtn);
+      }
     }
 
     list.appendChild(li);

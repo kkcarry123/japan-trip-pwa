@@ -189,6 +189,22 @@ html[data-glass="dark"] #wallpaper .blob { opacity: 0.5; filter: blur(85px); }
 .item-title { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.35; color: var(--ink); }
 .item-detail { font-size: 13px; color: var(--ink-soft); margin-top: 4px; line-height: 1.5; }
 
+.item-navigate {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft, rgba(192, 57, 43, 0.12));
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.item-navigate:active { transform: scale(0.96); }
+
 /* 交通/移动行:细一点、缩进,视觉上是"连接线"不是目的地 */
 .transit-row {
   display: flex;
