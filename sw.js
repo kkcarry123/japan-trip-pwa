@@ -1,5 +1,5 @@
 // pwa/sw.js
-const SHELL_CACHE = 'app-shell-v19';
+const SHELL_CACHE = 'app-shell-v20';
 const SHELL_FILES = [
   './',
   './index.html',
