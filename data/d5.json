@@ -7,7 +7,7 @@
     { "kind": "stop", "time": "09:00", "endTime": null, "title": "花の雲退房" },
     { "kind": "transit", "icon": "🚃", "time": "09:10", "endTime": "10:10", "title": "一趟车直坐到热海,中途不用换乘", "detail": "伊豆急行线跨界直通JR伊东线,坐着不动就行,可能是リゾート21キンメ電車,刷Suica即可" },
     { "kind": "transit", "icon": "🚶", "time": "10:10", "endTime": "10:43", "title": "热海站换乘", "detail": "33分钟,下车直接找新干线站台" },
-    { "kind": "transit", "icon": "🚄", "time": "10:40", "endTime": "12:37", "title": "东海道新干线ひかり707号 热海6号站台→京都", "detail": "117分钟,¥10,780,比こだま快近1小时" },
+    { "kind": "transit", "icon": "🚄", "time": "10:40", "endTime": "12:37", "title": "东海道新干线ひかり707号 热海6号站台→京都", "detail": "117分钟,¥10,780,比こだま快近1小时", "remind": true },
     { "kind": "stop", "time": "12:37", "endTime": "12:55", "title": "御宿野乃京都七条寄存行李", "detail": "不用等正式入住,先存包", "lat": 34.9836, "lng": 135.7583 },
     { "kind": "transit", "icon": "🚇", "time": "12:55", "endTime": "13:25", "title": "京都站→出町柳", "detail": "地铁乌丸线(国际会馆方向)→乌丸御池→东西线(六地藏方向)→三条京阪,步行2分钟到京阪三条中央口→京阪本线直达出町柳,实际约30分钟" },
     { "kind": "stop", "time": "13:25", "endTime": "14:30", "title": "午饭:出町柳/下鴨神社附近", "detail": "时间宽松不用赶" },

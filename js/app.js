@@ -41,12 +41,57 @@ function renderBoundaryScreen() {
   contentEl.appendChild(box);
 }
 
-function renderDay(data) {
+function buildReminderCard(tomorrow, items) {
+  const card = document.createElement('div');
+  card.className = 'reminder-card';
+
+  const heading = document.createElement('h3');
+  heading.textContent = `⏰ 明天 D${tomorrow.day}(${tomorrow.date})重点提醒`;
+  card.appendChild(heading);
+
+  const list = document.createElement('ul');
+  list.className = 'reminder-list';
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    const row = document.createElement('div');
+    row.className = 'reminder-row';
+    const time = document.createElement('span');
+    time.className = 'reminder-time';
+    time.textContent = item.time;
+    const label = document.createElement('span');
+    label.className = 'reminder-title';
+    label.textContent = item.title;
+    row.appendChild(time);
+    row.appendChild(label);
+    li.appendChild(row);
+
+    if (item.dressCode) {
+      const dress = document.createElement('p');
+      dress.className = 'reminder-dresscode';
+      dress.textContent = `👔 着装要求:${item.dressCode}`;
+      li.appendChild(dress);
+    }
+
+    list.appendChild(li);
+  });
+  card.appendChild(list);
+  return card;
+}
+
+async function renderDay(data) {
   contentEl.innerHTML = '';
 
   const title = document.createElement('h2');
   title.textContent = `D${data.day} · ${data.date} ${data.title}`;
   contentEl.appendChild(title);
+
+  if (data.day < 9) {
+    const tomorrow = await loadDay(data.day + 1);
+    const remindItems = tomorrow.items.filter((i) => i.remind === true || i.status === 'confirmed');
+    if (remindItems.length > 0) {
+      contentEl.appendChild(buildReminderCard(tomorrow, remindItems));
+    }
+  }
 
   const now = nowToMinutes(new Date());
   const { currentIndex, pastIndices } = getScheduleStatus(data.items, now);
@@ -128,7 +173,7 @@ async function switchDay(day) {
   currentDay = day;
   renderTabs(day);
   const data = await loadDay(day);
-  renderDay(data);
+  await renderDay(data);
   showDayOnMap(data.items);
 }
 
